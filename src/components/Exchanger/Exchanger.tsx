@@ -9,7 +9,7 @@ export const ExchangerComponent = (props: ExchangerProps) => {
     return (
         <div className={props.className}>
             <div className='exchanger-fields'>
-                <Field placeholder='USD' value={usd} onChange={(ev) => setUsdValue(ev.target.value)} />
+                <Field placeholder='USD' type='number' value={usd} onChange={(ev) => setUsdValue(ev.target.value)} />
                 <Field placeholder='EUR' value={props.eur} disabled/>
             </div>
             <Button uppercase primary onClick={() => props.onCalculate(usd)} >
