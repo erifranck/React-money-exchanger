@@ -10,19 +10,34 @@ import {actions} from "store/reducers/exchange";
 
 const store = createStore();
 export class App extends React.Component {
+    static state: {readonly eur: string} = {
+        eur: ''
+    }
+    constructor(props) {
+        super(props);
+        this.state = {
+            eur: ''
+        }
+    }
     componentDidMount() {
         store.dispatch(actions.getExchangeValue());
+        store.subscribe(() => {
+            this.setState({
+                eur: store.getState().exchange.eur
+            })
+        })
     }
     onCalculate(usd: string) {
         store.dispatch(actions.exchange(Number(usd)));
     }
     render () {
+        console.log(this.state);
         return (
             <Provider store={store}>
                 <ThemeProvider theme={theme}>
                     <Fragment>
                         <Header />
-                        <Exchanger onCalculate={this.onCalculate} eur={store.getState().exchange.eur}/>
+                        <Exchanger onCalculate={this.onCalculate} eur={this.state['eur']}/>
                         <Footer />
                     </Fragment>
                 </ThemeProvider>
