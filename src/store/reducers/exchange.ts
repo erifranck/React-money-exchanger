@@ -9,7 +9,7 @@ export const enum Type {
 }
 
 interface Creator extends ActionCreators {
-    exchange: () => { type: Type.EXCHANGE; usd: string };
+    exchange: (usd: number) => { type: Type.EXCHANGE; usd: number };
     startFetch: () => { type: Type.START_FETCH };
     getExchangeValue: () => { type: Type.GET_EXCHANGE_VALUE };
     getExchangeValueSuccess: (conversion: string) => { type: Type.GET_EXCHANGE_VALUE_SUCCESS, conversionValue: string };

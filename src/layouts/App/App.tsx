@@ -13,13 +13,16 @@ export class App extends React.Component {
     componentDidMount() {
         store.dispatch(actions.getExchangeValue());
     }
+    onCalculate(usd: string) {
+        store.dispatch(actions.exchange(Number(usd)));
+    }
     render () {
         return (
             <Provider store={store}>
                 <ThemeProvider theme={theme}>
                     <Fragment>
                         <Header />
-                        <Exchanger />
+                        <Exchanger onCalculate={this.onCalculate} eur={store.getState().exchange.eur}/>
                         <Footer />
                     </Fragment>
                 </ThemeProvider>
