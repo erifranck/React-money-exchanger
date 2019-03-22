@@ -8,10 +8,10 @@ const HeaderComponent = (props: Props) => (
     <div className={props.className}>
         <Avatar src={'/assets/erifranck.png'} />
         <div className='button-content' >
-            <LinkButton href='link' >Github</LinkButton>
-            <LinkButton href='link' >Linkedin</LinkButton>
-            <LinkButton href='link' >Instagram</LinkButton>
-            <LinkButton href='link' >Twitter</LinkButton>
+            <LinkButton href='https://github.com/erifranck' >Github</LinkButton>
+            <LinkButton href='https://www.linkedin.com/in/erifranck-nuñez-948a32b7/' >Linkedin</LinkButton>
+            <LinkButton href='https://instagram.com/erifranck' >Instagram</LinkButton>
+            <LinkButton href='https://twitter.com/erifrackn' >Twitter</LinkButton>
         </div>
     </div>
 );
